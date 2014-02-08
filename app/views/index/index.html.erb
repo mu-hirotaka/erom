@@ -1,2 +1,26 @@
 <h1>Index#index</h1>
-<p>Find me in app/views/index/index.html.erb</p>
+
+<table>
+  <tr>
+    <th>Round</th>
+    <th>Name</th>
+    <th>Point</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @players.each do |player| %>
+  <tr>
+    <td><%= player.round_id %></td>
+    <td><%= player.name %></td>
+    <td><%= player.point %></td>
+    <td><%= link_to 'Show', player %></td>
+    <td><%= link_to 'Edit', edit_player_path(player) %></td>
+    <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= link_to 'New Player', new_player_path %>

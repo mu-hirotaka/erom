@@ -55,18 +55,24 @@ class PlayersController < ApplicationController
 
   # PUT /players/1
   # PUT /players/1.json
+#  def update
+#    @player = Player.find(params[:id])
+#
+#    respond_to do |format|
+#      if @player.update_attributes(params[:player])
+#        format.html { redirect_to @player, notice: 'Player was successfully updated.' }
+#        format.json { head :no_content }
+#      else
+#        format.html { render action: "edit" }
+#        format.json { render json: @player.errors, status: :unprocessable_entity }
+#      end
+#    end
+#  end
   def update
     @player = Player.find(params[:id])
-
-    respond_to do |format|
-      if @player.update_attributes(params[:player])
-        format.html { redirect_to @player, notice: 'Player was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @player.errors, status: :unprocessable_entity }
-      end
-    end
+    @player.update_attributes(:point => @player.point + 1)
+#    @players = Player.find(:all, :conditions => { :round_id => params[:round_id] })
+    redirect_to :controller => "index", :action => "index"
   end
 
   # DELETE /players/1

@@ -1,0 +1,6 @@
+<%= form_for(player) do |f| %>
+  <div class="field">
+    <%= player.name %>:<%= f.label :point %>:<%= player.point %>
+    <%= f.submit 'ナイス' %>
+  </div>
+<% end %>

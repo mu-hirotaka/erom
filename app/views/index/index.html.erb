@@ -22,5 +22,10 @@
 <% end %>
 </table>
 
+
+<% @players.each do |player| %>
+<%= render :partial => 'form', :locals => { :player => player } %>
+<% end %>
+
 <br />
 <%= link_to 'New Player', new_player_path %>

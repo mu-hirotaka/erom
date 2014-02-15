@@ -1,6 +1,6 @@
 <%= form_for(player) do |f| %>
   <div class="field">
-    <%= player.name %>:<%= f.label :point %>:<%= player.point %>
-    <%= f.submit 'ナイス' %>
+    <%= player.name %>(<%= player.point %>)
+    <button type="submit" class="btn btn-primary">nice</button>
   </div>
 <% end %>

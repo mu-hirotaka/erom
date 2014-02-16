@@ -2,6 +2,7 @@ Footiine::Application.routes.draw do
   root to: 'index#index'
 
   resources :players
+  match '/admin', to: 'admin#index'
 
 
   # The priority is based upon order of creation:

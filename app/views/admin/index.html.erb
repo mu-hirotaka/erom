@@ -3,4 +3,11 @@
 <ul>
   <li><%= link_to 'Create player', new_player_path %></li>
   <li><%= link_to 'View all player', players_path %></li>
+  <li>
+    <%= form_tag(:controller => 'players', :action => 'list') do %>
+      Search players by round_id
+      <%= number_field 'round', 'id' %>
+      <%= submit_tag 'search' %>
+    <% end %>
+  </li>
 </ul>

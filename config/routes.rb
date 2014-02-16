@@ -1,6 +1,7 @@
 Footiine::Application.routes.draw do
   root to: 'index#index'
 
+  match '/players/list', to: 'players#list'
   resources :players
   match '/admin', to: 'admin#index'
 

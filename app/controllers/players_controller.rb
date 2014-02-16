@@ -86,4 +86,8 @@ class PlayersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def list
+    @players = Player.find_all_by_round_id(params[:round][:id]);
+  end
 end

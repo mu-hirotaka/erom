@@ -1,4 +1,7 @@
 Footiine::Application.routes.draw do
+  resources :rounds
+
+
   root to: 'index#index'
 
   match '/players/list', to: 'players#list'

@@ -1,8 +1,9 @@
-<h1>Admin#index</h1>
+<h1>Admin</h1>
 
 <ul>
   <li><%= link_to 'Create player', new_player_path %></li>
   <li><%= link_to 'View all player', players_path %></li>
+  <li><%= link_to 'View rounds', rounds_path %></li>
   <li>
     <%= form_tag(:controller => 'players', :action => 'list') do %>
       Search players by round_id

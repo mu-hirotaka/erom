@@ -1,4 +1,4 @@
-<h1>Players</h1>
+<h1><%= @round.title %></h1>
 
 <% @players.each do |player| %>
 <%= render :partial => 'form', :locals => { :player => player } %>

@@ -75,6 +75,12 @@ class PlayersController < ApplicationController
     redirect_to :controller => "index", :action => "index"
   end
 
+  def bad
+    @player = Player.find(params[:id])
+    @player.update_attributes(:point => @player.point - 1)
+    redirect_to :controller => "index", :action => "index"
+  end
+
   # DELETE /players/1
   # DELETE /players/1.json
   def destroy

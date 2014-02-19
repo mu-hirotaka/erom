@@ -1,5 +1,22 @@
 <h1><%= @round.title %></h1>
-
+<h2>試合を観戦しながら選手を評価しましょう</h2>
 <% @players.each do |player| %>
 <%= render :partial => 'form', :locals => { :player => player } %>
 <% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>avg pt</th>
+      <th>max pt</th>
+      <th>min pt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @all_points/@players.length %></td>
+      <td><%= @max_point %></td>
+      <td><%= @min_point %></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,7 +1,6 @@
-<%= form_for(player) do |f| %>
+<%= form_for(article) do |f| %>
   <div class="field">
-    <%= player.name %>(<%= player.point %>)
-    <button type="submit" class="btn btn-primary">Good</button>
-    <%= link_to 'Bad', { :controller => 'players', :action => 'bad', :id => player.id, :round_id => player.round_id }, { :class => 'btn btn-inverse' } %>
+    <%= article.title %>
+    <button type="submit" class="btn btn-primary">Good ( <%= article.total_point %>pt )</button>
   </div>
 <% end %>

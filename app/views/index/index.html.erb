@@ -1,22 +1,18 @@
-<h1><%= @round.title %></h1>
-<h2>試合を観戦しながら選手を評価しましょう</h2>
-<% @players.each do |player| %>
-<%= render :partial => 'form', :locals => { :player => player } %>
-<% end %>
+<div class="jumbotron">
+  <h1>Muvies</h1>
+  <p class="lead">このサイトは動画のリンク集です。なるべく毎日更新する努力します。かっこいい動画リンクサイトをテーマにページを作成しています。</p>
+</div>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>avg pt</th>
-      <th>max pt</th>
-      <th>min pt</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= @all_points/@players.length %></td>
-      <td><%= @max_point %></td>
-      <td><%= @min_point %></td>
-    </tr>
-  </tbody>
-</table>
+<div class="row">
+  <% @articles.each do |article| %>
+    <div class="col-sm-6">
+      <h2><%= article.title %></h2>
+      <p><%= article.comment %></p>
+      <p><%= link_to 'View', { :controller => 'articles', :action => 'good', :id => article.id }, { :class => 'btn btn-inverse' } %></p>
+    </div>
+    <div class="col-sm-6">
+      <h2>hoge</h2>
+    </div>
+  <% end %>
+</div>
+

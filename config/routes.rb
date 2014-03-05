@@ -9,6 +9,9 @@ Footiine::Application.routes.draw do
   resources :players
   match '/admin', to: 'admin#index'
 
+  match '/articles/good', to: 'articles#good'
+  resources :articles
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

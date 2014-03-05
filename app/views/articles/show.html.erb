@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>title:</b>
+  <%= @article.title %>
+</p>
+
+<p>
+  <b>comment:</b>
+  <%= @article.comment %>
+</p>
+
+<p>
+  <b>today_point:</b>
+  <%= @article.today_point %>
+</p>
+
+<p>
+  <b>total_point:</b>
+  <%= @article.total_point %>
+</p>
+
+<p>
+  <b>url:</b>
+  <%= @article.url %>
+</p>
+
+<p>
+  <b>visible:</b>
+  <%= @article.visible %>
+</p>
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>

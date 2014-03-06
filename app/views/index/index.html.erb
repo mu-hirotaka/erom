@@ -8,7 +8,7 @@
     <div class="col-sm-6">
       <h2><%= article.title %></h2>
       <p><%= article.comment %></p>
-      <p><%= link_to 'View', { :controller => 'articles', :action => 'good', :id => article.id }, { :class => 'btn btn-inverse' } %></p>
+      <p><%= link_to 'View'+ ' (' + article.total_point.to_s + ' pt)', { :controller => 'articles', :action => 'good', :id => article.id }, { :class => 'btn btn-inverse' } %></p>
     </div>
     <div class="col-sm-6">
       <h2>hoge</h2>

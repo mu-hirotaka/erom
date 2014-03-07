@@ -3,16 +3,16 @@
   <p class="lead">このサイトは動画のリンク集です。なるべく毎日更新する努力します。かっこいい動画リンクサイトをテーマにページを作成しています。</p>
 </div>
 
-<div class="row">
   <% @articles.each do |article| %>
+  <div class="row">
     <div class="col-sm-6">
       <h2><%= article.title %></h2>
       <p><%= article.comment %></p>
-      <p><%= link_to 'View'+ ' (' + article.total_point.to_s + ' pt)', { :controller => 'articles', :action => 'good', :id => article.id }, { :class => 'btn btn-inverse' } %></p>
+      <p><%= link_to 'View'+ ' ( ' + article.total_point.to_s + ' pt )', { :controller => 'articles', :action => 'good', :id => article.id }, { :class => 'btn btn-primary' } %></p>
     </div>
     <div class="col-sm-6">
-      <h2>hoge</h2>
+      <h2>Hightlight</h2>
     </div>
+  </div>
   <% end %>
-</div>
 

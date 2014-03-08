@@ -20,8 +20,16 @@
     <%= f.number_field :article_id %>
   </div>
   <div class="field">
-    <%= f.label :elapsed_time %><br />
-    <%= f.number_field :elapsed_time %>
+    <%= f.label :hour %>
+    <%= f.number_field :hour %>
+  </div>
+  <div class="field">
+    <%= f.label :minute %>
+    <%= f.number_field :minute %>
+  </div>
+  <div class="field">
+    <%= f.label :second %>
+    <%= f.number_field :second %>
   </div>
   <div class="actions">
     <%= f.submit %>

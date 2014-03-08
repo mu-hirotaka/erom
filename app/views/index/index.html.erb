@@ -1,6 +1,6 @@
 <div class="jumbotron">
-  <h1>Muvies</h1>
-  <p class="lead">このサイトは動画のリンク集です。なるべく毎日更新する努力します。かっこいい動画リンクサイトをテーマにページを作成しています。</p>
+  <h1>Football Life</h1>
+  <p class="lead">このサイトはサッカー動画のリンク集です。海外サッカーを中心に収集しています。</p>
 </div>
 
   <% @articles.each do |article| %>
@@ -11,7 +11,23 @@
       <p><%= link_to 'View'+ ' ( ' + article.total_point.to_s + ' pt )', { :controller => 'articles', :action => 'good', :id => article.id }, { :class => 'btn btn-primary' } %></p>
     </div>
     <div class="col-sm-6">
-      <h2>Hightlight</h2>
+      <h2>ハイライト</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>時間</th>
+            <th>内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% article.article_comments.each do |comment| %>
+            <tr>
+              <td><%= comment.formated_elapsed_time %></td>
+              <td><%= comment.comment %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
   <% end %>

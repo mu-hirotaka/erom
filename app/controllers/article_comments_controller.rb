@@ -48,8 +48,13 @@ class ArticleCommentsController < ApplicationController
   def update
     @article_comment = ArticleComment.find(params[:id])
 
+    elapsed_time = (params[:article_comment][:hour]).to_i * 3600 + (params[:article_comment][:minute]).to_i * 60 + (params[:article_comment][:second]).to_i
+    update_column = {
+      :comment => params[:article_comment][:comment],
+      :elapsed_time => elapsed_time
+    }
     respond_to do |format|
-      if @article_comment.update_attributes(params[:article_comment])
+      if @article_comment.update_attributes(update_column)
         format.html { redirect_to @article_comment, notice: 'ArticleComment was successfully updated.' }
         format.json { head :no_content }
       else

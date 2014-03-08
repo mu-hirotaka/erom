@@ -12,6 +12,8 @@ Footiine::Application.routes.draw do
   match '/articles/good', to: 'articles#good'
   resources :articles
   resources :article_comments
+  match '/inquiries/list', to: 'inquiries#list'
+  resources :inquiries
 
 
   # The priority is based upon order of creation:

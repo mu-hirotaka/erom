@@ -1,0 +1,21 @@
+<h1>Listing inquiries</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>mail</th>
+    <th>content</th>
+    <th></th>
+  </tr>
+
+<% @inquiries.each do |inquiry| %>
+  <tr>
+    <td><%= inquiry.name %></td>
+    <td><%= inquiry.mail %></td>
+    <td><%= inquiry.content %></td>
+    <td><%= link_to 'Destroy', inquiry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

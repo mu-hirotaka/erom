@@ -21,6 +21,12 @@ class ArticleCommentsController < ApplicationController
   def new
     @article_comment = ArticleComment.new
 
+    if params[:article_id].to_i > 0
+      @article_id = params[:article_id]
+    else
+      @article_id = 0
+    end
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @article_comment }
@@ -32,7 +38,15 @@ class ArticleCommentsController < ApplicationController
   end
 
   def create
-    @article_comment = ArticleComment.new(params[:article_comment])
+
+    elapsed_time = (params[:article_comment][:hour]).to_i * 3600 + (params[:article_comment][:minute]).to_i * 60 + (params[:article_comment][:second]).to_i
+    create_record = {
+      :article_id => params[:article_comment][:article_id],
+      :comment => params[:article_comment][:comment],
+      :elapsed_time => elapsed_time
+    }
+
+    @article_comment = ArticleComment.new(create_record)
 
     respond_to do |format|
       if @article_comment.save

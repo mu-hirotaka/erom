@@ -1,0 +1,27 @@
+<h1>All article_comments</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Article_id</th>
+    <th>Comment</th>
+    <th>elapsed_time</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @article_comments.each do |comment| %>
+  <tr>
+    <td><%= comment.id %></td>
+    <td><%= comment.article_id %></td>
+    <td><%= comment.comment %></td>
+    <td><%= comment.elapsed_time %></td>
+    <td><%= link_to 'Show', comment %></td>
+    <td><%= link_to 'Edit', edit_article_comment_path(comment) %></td>
+    <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

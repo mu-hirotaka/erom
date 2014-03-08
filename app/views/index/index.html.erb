@@ -11,6 +11,7 @@
       <p><%= link_to 'View'+ ' ( ' + article.total_point.to_s + ' pt )', { :controller => 'articles', :action => 'good', :id => article.id }, { :class => 'btn btn-primary' } %></p>
     </div>
     <div class="col-sm-6">
+      <% if article.article_comments.size > 0 %>
       <h2>ハイライト</h2>
       <table class="table">
         <thead>
@@ -28,6 +29,7 @@
           <% end %>
         </tbody>
       </table>
+      <% end %>
     </div>
   </div>
   <% end %>

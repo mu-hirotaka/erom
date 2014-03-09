@@ -12,6 +12,7 @@
     </div>
     <div class="col-sm-6">
       <% if article.article_comments.size > 0 %>
+      <% article_comments = article.article_comments.sort_by { |c| c.elapsed_time } %>
       <h2>ハイライト</h2>
       <table class="table">
         <thead>
@@ -21,7 +22,7 @@
           </tr>
         </thead>
         <tbody>
-          <% article.article_comments.each do |comment| %>
+          <% article_comments.each do |comment| %>
             <tr>
               <td><%= comment.formated_elapsed_time %></td>
               <td><%= comment.comment %></td>

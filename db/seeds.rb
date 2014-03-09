@@ -10,3 +10,7 @@ require "csv"
 CSV.foreach('db/article.csv') do |row|
   Article.create(:title => row[0], :comment => row[1], :url => row[2], :total_point => 0, :today_point => 0, :visible => 1)
 end
+
+CSV.foreach('db/article_comment.csv') do |row|
+  ArticleComment.create(:article_id => row[0], :comment => row[1], :elapsed_time => row[2])
+end

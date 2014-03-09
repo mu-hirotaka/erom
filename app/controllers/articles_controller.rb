@@ -2,6 +2,9 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+    if @articles.size > 0
+      @articles.sort_by! { |article| - article.id }
+    end
 
     respond_to do |format|
       format.html # index.html.erb

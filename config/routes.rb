@@ -10,6 +10,7 @@ Footiine::Application.routes.draw do
   match '/admin', to: 'admin#index'
 
   match '/articles/good', to: 'articles#good'
+  match '/articles/old', to: 'articles#old'
   resources :articles
   resources :article_comments
   match '/inquiries/list', to: 'inquiries#list'

@@ -79,4 +79,12 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def old
+    @articles = Article.all.find_all { |article| ((params[:id].to_i - article.id) > 0) && ((params[:id].to_i - article.id) <= 3) }
+    @articles.sort_by! { |article| - article.id }
+    older_article = @articles.min_by { |article| article.id }
+    html = render_to_string partial: 'articles/more'
+    render json: { html: html, id: older_article.id }
+  end
+
 end

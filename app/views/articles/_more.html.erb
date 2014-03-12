@@ -1,0 +1,34 @@
+<% @articles.each do |article| %>
+  <div class="row">
+    <div class="col-sm-6">
+      <h2>
+        <% if ((Time.now.to_i - article.created_at.to_i) < (24*60*60)) %><span class="new-icon">New</span><% end %>
+        <%= article.title %>
+      </h2>
+      <p><%= article.comment %></p>
+      <p><%= link_to 'View'+ ' ( ' + article.total_point.to_s + ' pt )', { :controller => 'articles', :action => 'good', :id => article.id }, { :class => 'btn btn-primary' } %></p>
+    </div>
+    <div class="col-sm-6">
+      <% if article.article_comments.size > 0 %>
+      <% article_comments = article.article_comments.sort_by { |c| c.elapsed_time } %>
+      <h2>ハイライト</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>時間</th>
+            <th>内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% article_comments.each do |comment| %>
+            <tr>
+              <td><%= comment.formated_elapsed_time %></td>
+              <td><%= comment.comment %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <% end %>
+    </div>
+  </div>
+<% end %>

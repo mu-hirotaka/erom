@@ -38,3 +38,14 @@
 </div>
 <% end %>
 
+<% older_article = @articles.min_by { |article| article.id } %>
+<div id="additional-article">
+</div>
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="btn-more col-sm-4">
+      <%= link_to "more", articles_old_path(:id => older_article.id), :remote => true, :class => 'btn btn-success btn-block' %>
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
+
